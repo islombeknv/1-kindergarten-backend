@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load cropping %}
+{% block title %} Gallery {% endblock %}
+
+{% block content %}
+     <!-- gallery-->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-xl-12 col-md-12 col-lg-12 text-center mt-4 mb-4">
+                <h2>Galleriya</h2>
+                <hr>
+            </div>
+            <div class="col-xl-12 col-md-12 col-lg-12">
+                <div class="owl-carousel owl-theme">
+                    {% for i in object_list %}
+                        <div class="item"><img class='nnn' src="{% cropped_thumbnail i "cropping" scale=1 %}" alt="-"></div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

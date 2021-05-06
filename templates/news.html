@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load cropping %}
+{% load static %}
+{% block title %} Yangiliklar {% endblock %}
+
+
+  {% block extra_css %}
+  <style>
+    .a {
+        color: black;
+    }
+    .a:hover {
+        color: #0000FF;
+        text-decoration: none;
+    }
+    .card-body {
+        padding-bottom: 5px;
+        padding-left: 1px;
+        padding-right: 1px;
+    }
+     .card {
+         border-top: 0;
+         border-left: 0;
+         border-right: 0;
+     }
+  </style>
+
+  {% endblock %}
+
+{% block content %}
+    <!--news-->
+    <div class="container mt-5 pt-5">
+        <h3 class="text-center pb-3">Yangiliklar</h3>
+        <div class=" mt-4">
+            <div class="row">
+                {% for i in object_list %}
+                    <div class="card col-xl-4 mb-4">
+                        <img src="{% cropped_thumbnail i "cropping" scale=1 %}" class="card-img-top" alt="...">
+                       <div class="card-body" style="padding-bottom: 0px">
+                        <p class="card-text"><small class="text-muted"><i class="bi bi-calendar4-event"
+                                                                          style="position: relative; bottom: 3px;"> </i>
+                            {{ i.created_at|date:'H:i / d.m.Y' }}</small></p>
+                        <h5 class="card-title"><a class='a' href="{% url 'yangiliklar-r' pk=i.pk %}">{{ i.title }}</a></h5>
+                    </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <p id="contact"></p>
+    </div>
+{% endblock %}
