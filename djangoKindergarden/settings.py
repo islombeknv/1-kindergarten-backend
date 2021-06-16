@@ -3,7 +3,7 @@ from easy_thumbnails.conf import Settings as thumbnail_settings
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-7-7dra+m)*hsu&*7x6ec)l!lvcjp##c4cs&@@)@r&t5((95b#0'
+SECRET_KEY = ''
 
 DEBUG = True
 
